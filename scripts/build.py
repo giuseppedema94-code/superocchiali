@@ -15,7 +15,7 @@ LOGO = ('<svg width="58" height="28" viewBox="0 0 58 28" aria-hidden="true">'
         '<path d="M25 12 Q29 8 33 12" fill="none" stroke="#141414" stroke-width="3"/>'
         '<circle cx="16" cy="13" r="4" fill="#141414"/><circle cx="46" cy="13" r="4" fill="#141414"/></svg>')
 
-NAV = [("/sole/", "Sole"), ("/vista/", "Vista"), ("/#test", "Che faccia hai?")]
+NAV = [("/sole/", "Sole"), ("/vista/", "Vista")]
 
 
 def page(path, title, desc, body, current=""):
@@ -99,23 +99,9 @@ faces_html = "".join(
     f'<button type="button" class="face" data-face="{k}" data-label="{l}" aria-pressed="{"true" if k == "tondo" else "false"}">{face_svg(d)}<span>{l}</span></button>'
     for k, l, d in FACES)
 
-HOME = f"""<section id="test" class="wrap hero">
-<div class="hero-txt">
-<p class="badge">Il comparatore che ti guarda in faccia</p>
-<h1>Che faccia hai?</h1>
-<p class="lead">Scegli la forma del tuo viso: ti diciamo quali montature ti stanno bene e ti mostriamo i prezzi dei negozi a confronto.</p>
-<div class="faces" role="group" aria-label="Forma del viso">{faces_html}</div>
-<div class="tip" aria-live="polite">
-<p>Viso <span id="tip-label">tondo</span>: <span id="tip-text">montature squadrate o rettangolari, che aggiungono angoli.</span></p>
-<a href="/vista/">Vedi le montature →</a>
-</div>
-</div>
-<div class="hero-art"><img src="/img/mascotte.svg" width="380" height="380" alt="La mascotte di superocchiali: un paio di occhiali con gli occhi che saluta"></div>
-</section>
-
-<section class="dark" aria-labelledby="lenti">
+HOME = f"""<section class="dark" aria-labelledby="lenti">
 <div class="wrap">
-<div class="sec-head"><h2 id="lenti">Le Lenti del Giorno</h2><p>Prezzi presi ogni giorno dai negozi</p></div>
+<div class="sec-head"><h1 id="lenti">Le Lenti del Giorno</h1><p>Prezzi presi ogni giorno dai negozi</p></div>
 {offerte()}
 </div>
 </section>
@@ -166,7 +152,7 @@ def reparto(nome, slug, lead, cats, faccia):
 </section>
 <section class="wrap prose">
 <h2>Quale forma per il tuo viso</h2>
-<p>{faccia} Non sai che faccia hai? <a href="/#test">Fai il test</a>.</p>
+<p>{faccia}</p>
 </section>"""
 
 
